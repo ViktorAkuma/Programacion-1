@@ -58,7 +58,8 @@ namespace WindowsForms
 
         private void iconToolStripButton1_Click(object sender, EventArgs e)
         {
-           
+            string url = "https://api.open-meteo.com/v1/forecast?latitude=-30.783764985498472&longitude=-60.590981253914215&current=temperature_2m,relative_humidity_2m";
+            var clientHttp = new System.Net.Http.HttpClient();
         }
     }
 }

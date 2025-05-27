@@ -40,6 +40,7 @@
             salir = new FontAwesome.Sharp.IconMenuItem();
             subMenuSalirdelaApp = new FontAwesome.Sharp.IconMenuItem();
             iconToolStripButton5 = new FontAwesome.Sharp.IconToolStripButton();
+            btnObtenerClima = new Button();
             toolStrip1.SuspendLayout();
             menuStrip1.SuspendLayout();
             SuspendLayout();
@@ -172,11 +173,21 @@
             iconToolStripButton5.Size = new Size(23, 23);
             iconToolStripButton5.Text = "iconToolStripButton5";
             // 
+            // btnObtenerClima
+            // 
+            btnObtenerClima.Location = new Point(67, 271);
+            btnObtenerClima.Name = "btnObtenerClima";
+            btnObtenerClima.Size = new Size(140, 29);
+            btnObtenerClima.TabIndex = 3;
+            btnObtenerClima.Text = "Obtener clima";
+            btnObtenerClima.UseVisualStyleBackColor = true;
+            // 
             // ClimaAppView
             // 
             AutoScaleDimensions = new SizeF(9F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(900, 450);
+            Controls.Add(btnObtenerClima);
             Controls.Add(labelTituloApp);
             Controls.Add(toolStrip1);
             Controls.Add(menuStrip1);
@@ -208,5 +219,6 @@
         private FontAwesome.Sharp.IconMenuItem salir;
         private FontAwesome.Sharp.IconMenuItem subMenuSalirdelaApp;
         private FontAwesome.Sharp.IconMenuItem subMenuNosotros;
+        private Button btnObtenerClima;
     }
 }
