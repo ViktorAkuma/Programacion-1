@@ -4,16 +4,17 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.Http.Json;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsForms.Models;
 using WindowsForms.Views;
 
 namespace WindowsForms
 {
     public partial class ClimaAppView : Form
     {
-        private string v;
 
         public ClimaAppView()
         {
@@ -31,11 +32,6 @@ namespace WindowsForms
         }
 
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
         {
 
         }
@@ -70,8 +66,18 @@ namespace WindowsForms
             if (response != null)
             {
                 QueryTemperature queryTemperature = await response.Content.ReadFromJsonAsync<QueryTemperature>();
-                MenssageBox.Show($"La temperatura actual es:{queryTemperature.current.temperature_2m} °C";
+                this.label1.Text = $"La temperatura actual es:{queryTemperature.current.temperature_2m} °C";
             }
+        }
+
+        private void label1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void acercaDe_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

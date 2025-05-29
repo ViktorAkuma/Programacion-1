@@ -1,4 +1,5 @@
-﻿namespace WindowsForms
+﻿
+namespace WindowsForms
 {
     partial class ClimaAppView
     {
@@ -134,6 +135,7 @@
             acercaDe.Name = "acercaDe";
             acercaDe.Size = new Size(118, 24);
             acercaDe.Text = "Acerca de...";
+            acercaDe.Click += acercaDe_Click;
             // 
             // subMenuNosotros
             // 
@@ -141,7 +143,7 @@
             subMenuNosotros.IconColor = Color.Black;
             subMenuNosotros.IconFont = FontAwesome.Sharp.IconFont.Auto;
             subMenuNosotros.Name = "subMenuNosotros";
-            subMenuNosotros.Size = new Size(152, 26);
+            subMenuNosotros.Size = new Size(224, 26);
             subMenuNosotros.Text = "Nosotros";
             subMenuNosotros.Click += iconMenuItem1_Click;
             // 
@@ -192,6 +194,7 @@
             label1.Size = new Size(51, 20);
             label1.TabIndex = 4;
             label1.Text = "label1";
+            label1.Click += label1_Click_1;
             // 
             // ClimaAppView
             // 
@@ -216,6 +219,11 @@
             menuStrip1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion
