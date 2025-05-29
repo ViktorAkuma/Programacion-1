@@ -41,6 +41,7 @@
             subMenuSalirdelaApp = new FontAwesome.Sharp.IconMenuItem();
             iconToolStripButton5 = new FontAwesome.Sharp.IconToolStripButton();
             btnObtenerClima = new Button();
+            label1 = new Label();
             toolStrip1.SuspendLayout();
             menuStrip1.SuspendLayout();
             SuspendLayout();
@@ -140,7 +141,7 @@
             subMenuNosotros.IconColor = Color.Black;
             subMenuNosotros.IconFont = FontAwesome.Sharp.IconFont.Auto;
             subMenuNosotros.Name = "subMenuNosotros";
-            subMenuNosotros.Size = new Size(224, 26);
+            subMenuNosotros.Size = new Size(152, 26);
             subMenuNosotros.Text = "Nosotros";
             subMenuNosotros.Click += iconMenuItem1_Click;
             // 
@@ -160,7 +161,7 @@
             subMenuSalirdelaApp.IconColor = Color.Black;
             subMenuSalirdelaApp.IconFont = FontAwesome.Sharp.IconFont.Auto;
             subMenuSalirdelaApp.Name = "subMenuSalirdelaApp";
-            subMenuSalirdelaApp.Size = new Size(224, 26);
+            subMenuSalirdelaApp.Size = new Size(190, 26);
             subMenuSalirdelaApp.Text = "Salir de la App";
             subMenuSalirdelaApp.Click += subMenuSalirdelaApp_Click;
             // 
@@ -181,12 +182,23 @@
             btnObtenerClima.TabIndex = 3;
             btnObtenerClima.Text = "Obtener clima";
             btnObtenerClima.UseVisualStyleBackColor = true;
+            btnObtenerClima.Click += btnObtenerClima_Click;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(256, 274);
+            label1.Name = "label1";
+            label1.Size = new Size(51, 20);
+            label1.TabIndex = 4;
+            label1.Text = "label1";
             // 
             // ClimaAppView
             // 
             AutoScaleDimensions = new SizeF(9F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(900, 450);
+            Controls.Add(label1);
             Controls.Add(btnObtenerClima);
             Controls.Add(labelTituloApp);
             Controls.Add(toolStrip1);
@@ -220,5 +232,6 @@
         private FontAwesome.Sharp.IconMenuItem subMenuSalirdelaApp;
         private FontAwesome.Sharp.IconMenuItem subMenuNosotros;
         private Button btnObtenerClima;
+        private Label label1;
     }
 }

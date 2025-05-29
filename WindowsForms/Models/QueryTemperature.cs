@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace WindowsForms.Models
 {
     //Consulta de temperatura
-    public class Root
+    public class QuaryTemperature
     {
         public double latitude { get; set; }
         public double longitude { get; set; }
