@@ -14,9 +14,11 @@ namespace Calcu.Class
         //método que se llama igual que la clase y que no tiene tipo de retorno
         //es el constructor de la clase
         //se ejecuta cuando se crea un objeto de la clase
+        public static int instancias=0;
 
         public Calculadora()
         {
+            instancias++;
             resultado = 0;
             operacion = "";
         }
@@ -46,6 +48,11 @@ namespace Calcu.Class
             {
                 Console.WriteLine("Error: División por cero");
             }
+        }
+        public static void Potencia(double num1, double num2)
+        {
+            var resultado = Math.Pow(num1, num2);
+            Console.WriteLine("El resultado de la Potencia es: " + resultado);
         }
         public void ImprimirResultado()
         {
