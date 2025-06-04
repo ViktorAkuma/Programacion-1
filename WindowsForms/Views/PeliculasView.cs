@@ -35,27 +35,23 @@ namespace WindowsForms.Views
         {
 
         }
-        private void btnSalir_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
         private async void ObtenemosPeliculas()
         {
-            
+
             var response = await clientHttp.GetAsync(url);
             if (response != null)
             {
                 List<Peliculas> peliculas = await response.Content.ReadFromJsonAsync<List<Peliculas>>();
-                dataGridView1.DataSource = peliculas;
+                GridPeliculas.DataSource = peliculas;
             }
         }
 
         private async void btnEliminar_Click_1(object sender, EventArgs e)
         {
             //Chequeamos que haya peliculas en la grilla
-            if (dataGridView1.SelectedRows.Count > 0 && dataGridView1.SelectedRows.Count > 0)
+            if (GridPeliculas.RowCount > 0 && GridPeliculas.SelectedRows.Count > 0)
             {
-                Peliculas peliculasSeleccionada = (Peliculas)dataGridView1.SelectedRows[0].DataBoundItem;
+                Peliculas peliculasSeleccionada = (Peliculas)GridPeliculas.SelectedRows[0].DataBoundItem;
                 var respuesta = MessageBox.Show($"¿Está seguro que desea eliminar la película seleccionada {peliSeleccionada._id}?", "Confirmar Eliminacion", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                 if (respuesta == DialogResult.Yes)
@@ -76,15 +72,24 @@ namespace WindowsForms.Views
             }
         }
 
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void PeliculasView_Load(object sender, EventArgs e)
         {
 
         }
 
-        private void PeliculasView_Load(object sender, EventArgs e)
+        private void btnSalir_Click_1(object sender, EventArgs e)
         {
+            this.Close();
+        }
 
+        private void GridPeliculas_SelectionChanged(object sender, EventArgs e)
+        { 
+            if (GridPeliculas.RowCount > 0 && GridPeliculas.SelectedRows.Count > 0)
+            {
+                Peliculas peliSeleccionada = (Peliculas)GridPeliculas.SelectedRows[0].DataBoundItem;
+                FilmPicture.ImageLocation = peliSeleccionada.portada;
+            }
+           
         }
     }
 }

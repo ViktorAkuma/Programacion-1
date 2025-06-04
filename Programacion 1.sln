@@ -13,7 +13,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Maui.NET_1", "Maui.NET_1\Ma
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsPresentationFoundation", "WindowsPresentationFoundation\WindowsPresentationFoundation.csproj", "{817CB7F1-E5EA-4F41-9D85-B4E3C0231BD1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AcademiaSeguridadApp1", "AcademiaSeguridadApp1\AcademiaSeguridadApp1.csproj", "{02A4CC58-1EA2-4301-BAB7-235153D55B3D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API_Pokemon", "API_Pokemon\API_Pokemon.csproj", "{A3D1D3F3-9B55-4716-9452-457B4DD0ADD8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,10 +43,10 @@ Global
 		{817CB7F1-E5EA-4F41-9D85-B4E3C0231BD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{817CB7F1-E5EA-4F41-9D85-B4E3C0231BD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{817CB7F1-E5EA-4F41-9D85-B4E3C0231BD1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{02A4CC58-1EA2-4301-BAB7-235153D55B3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{02A4CC58-1EA2-4301-BAB7-235153D55B3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{02A4CC58-1EA2-4301-BAB7-235153D55B3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{02A4CC58-1EA2-4301-BAB7-235153D55B3D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3D1D3F3-9B55-4716-9452-457B4DD0ADD8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3D1D3F3-9B55-4716-9452-457B4DD0ADD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3D1D3F3-9B55-4716-9452-457B4DD0ADD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3D1D3F3-9B55-4716-9452-457B4DD0ADD8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

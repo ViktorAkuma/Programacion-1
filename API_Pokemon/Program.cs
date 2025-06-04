@@ -1,6 +1,4 @@
-using WindowsForms.Views;
-
-namespace WindowsForms
+namespace API_Pokemon
 {
     internal static class Program
     {
@@ -13,8 +11,7 @@ namespace WindowsForms
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new PeliculasView());
-
+            Application.Run(new Pokemon());
         }
     }
 }
