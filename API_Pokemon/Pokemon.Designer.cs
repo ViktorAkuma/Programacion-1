@@ -1,7 +1,6 @@
-﻿
-namespace API_Pokemon
+﻿namespace API_Pokemon
 {
-    partial class Pokemon
+    public partial class Pokemon
     {
         /// <summary>
         ///  Required designer variable.
@@ -29,105 +28,104 @@ namespace API_Pokemon
         /// </summary>
         private void InitializeComponent()
         {
-            dataGridPokedex = new DataGridView();
             labelNom = new Label();
-            NomTextBox = new TextBox();
             labelTipo = new Label();
-            TipoTextBox = new TextBox();
-            buttonSalir = new FontAwesome.Sharp.IconButton();
             labelGen = new Label();
-            textBoxGen = new TextBox();
             labelEvo = new Label();
+            btnSalir = new FontAwesome.Sharp.IconButton();
+            GridPokedex = new DataGridView();
+            textBoxNom = new TextBox();
+            textBoxTipo = new TextBox();
+            textBoxGen = new TextBox();
             textBoxEvo = new TextBox();
-            ((System.ComponentModel.ISupportInitialize)dataGridPokedex).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)GridPokedex).BeginInit();
             SuspendLayout();
-            // 
-            // dataGridPokedex
-            // 
-            dataGridPokedex.AllowUserToAddRows = false;
-            dataGridPokedex.AllowUserToDeleteRows = false;
-            dataGridPokedex.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridPokedex.GridColor = SystemColors.Info;
-            dataGridPokedex.Location = new Point(370, 12);
-            dataGridPokedex.Name = "dataGridPokedex";
-            dataGridPokedex.ReadOnly = true;
-            dataGridPokedex.RowHeadersWidth = 51;
-            dataGridPokedex.Size = new Size(418, 426);
-            dataGridPokedex.TabIndex = 0;
             // 
             // labelNom
             // 
             labelNom.AutoSize = true;
-            labelNom.Location = new Point(12, 9);
+            labelNom.Location = new Point(12, 12);
             labelNom.Name = "labelNom";
             labelNom.Size = new Size(64, 20);
-            labelNom.TabIndex = 1;
+            labelNom.TabIndex = 0;
             labelNom.Text = "Nombre";
-            // 
-            // NomTextBox
-            // 
-            NomTextBox.Location = new Point(139, 6);
-            NomTextBox.Name = "NomTextBox";
-            NomTextBox.Size = new Size(125, 27);
-            NomTextBox.TabIndex = 2;
+            labelNom.Click += labelNom_Click;
             // 
             // labelTipo
             // 
             labelTipo.AutoSize = true;
-            labelTipo.Location = new Point(12, 66);
+            labelTipo.Location = new Point(12, 63);
             labelTipo.Name = "labelTipo";
             labelTipo.Size = new Size(39, 20);
-            labelTipo.TabIndex = 3;
+            labelTipo.TabIndex = 1;
             labelTipo.Text = "Tipo";
-            // 
-            // TipoTextBox
-            // 
-            TipoTextBox.Location = new Point(139, 63);
-            TipoTextBox.Name = "TipoTextBox";
-            TipoTextBox.Size = new Size(125, 27);
-            TipoTextBox.TabIndex = 4;
-            // 
-            // ButtonSalir
-            // 
-            buttonSalir.IconChar = FontAwesome.Sharp.IconChar.None;
-            buttonSalir.IconColor = Color.Black;
-            buttonSalir.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            buttonSalir.Location = new Point(12, 409);
-            buttonSalir.Name = "ButtonSalir";
-            buttonSalir.Size = new Size(333, 29);
-            buttonSalir.TabIndex = 5;
-            buttonSalir.Text = "Salir de la Pokedex";
-            buttonSalir.UseVisualStyleBackColor = true;
             // 
             // labelGen
             // 
             labelGen.AutoSize = true;
-            labelGen.Location = new Point(12, 123);
+            labelGen.Location = new Point(12, 121);
             labelGen.Name = "labelGen";
             labelGen.Size = new Size(84, 20);
-            labelGen.TabIndex = 6;
+            labelGen.TabIndex = 2;
             labelGen.Text = "Generación";
-            // 
-            // textBoxGen
-            // 
-            textBoxGen.Location = new Point(139, 123);
-            textBoxGen.Name = "textBoxGen";
-            textBoxGen.Size = new Size(125, 27);
-            textBoxGen.TabIndex = 7;
             // 
             // labelEvo
             // 
             labelEvo.AutoSize = true;
-            labelEvo.Location = new Point(12, 192);
+            labelEvo.Location = new Point(12, 178);
             labelEvo.Name = "labelEvo";
             labelEvo.Size = new Size(73, 20);
-            labelEvo.TabIndex = 8;
+            labelEvo.TabIndex = 3;
             labelEvo.Text = "Evolución";
             // 
-            // EvoTextBox
+            // btnSalir
             // 
-            textBoxEvo.Location = new Point(139, 189);
-            textBoxEvo.Name = "EvoTextBox";
+            btnSalir.IconChar = FontAwesome.Sharp.IconChar.None;
+            btnSalir.IconColor = Color.Black;
+            btnSalir.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnSalir.Location = new Point(12, 409);
+            btnSalir.Name = "btnSalir";
+            btnSalir.Size = new Size(300, 29);
+            btnSalir.TabIndex = 4;
+            btnSalir.Text = "Salir de la Pokedex";
+            btnSalir.UseVisualStyleBackColor = true;
+            btnSalir.Click += btnSalir_Click;
+            // 
+            // GridPokedex
+            // 
+            GridPokedex.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            GridPokedex.Location = new Point(406, 12);
+            GridPokedex.Name = "GridPokedex";
+            GridPokedex.RowHeadersWidth = 51;
+            GridPokedex.Size = new Size(382, 426);
+            GridPokedex.TabIndex = 5;
+            GridPokedex.CellContentClick += GridPokedex_CellContentClick;
+            // 
+            // textBoxNom
+            // 
+            textBoxNom.Location = new Point(139, 12);
+            textBoxNom.Name = "textBoxNom";
+            textBoxNom.Size = new Size(125, 27);
+            textBoxNom.TabIndex = 6;
+            // 
+            // textBoxTipo
+            // 
+            textBoxTipo.Location = new Point(139, 63);
+            textBoxTipo.Name = "textBoxTipo";
+            textBoxTipo.Size = new Size(125, 27);
+            textBoxTipo.TabIndex = 7;
+            // 
+            // textBoxGen
+            // 
+            textBoxGen.Location = new Point(139, 118);
+            textBoxGen.Name = "textBoxGen";
+            textBoxGen.Size = new Size(125, 27);
+            textBoxGen.TabIndex = 8;
+            // 
+            // textBoxEvo
+            // 
+            textBoxEvo.Location = new Point(139, 175);
+            textBoxEvo.Name = "textBoxEvo";
             textBoxEvo.Size = new Size(125, 27);
             textBoxEvo.TabIndex = 9;
             // 
@@ -137,36 +135,33 @@ namespace API_Pokemon
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Controls.Add(textBoxEvo);
-            Controls.Add(labelEvo);
             Controls.Add(textBoxGen);
+            Controls.Add(textBoxTipo);
+            Controls.Add(textBoxNom);
+            Controls.Add(GridPokedex);
+            Controls.Add(btnSalir);
+            Controls.Add(labelEvo);
             Controls.Add(labelGen);
-            Controls.Add(buttonSalir);
-            Controls.Add(TipoTextBox);
             Controls.Add(labelTipo);
-            Controls.Add(NomTextBox);
             Controls.Add(labelNom);
-            Controls.Add(dataGridPokedex);
             Name = "Pokemon";
-            StartPosition = FormStartPosition.CenterScreen;
-            Text = "Pokemon";
-            ((System.ComponentModel.ISupportInitialize)dataGridPokedex).EndInit();
+            Text = "Form1";
+            ((System.ComponentModel.ISupportInitialize)GridPokedex).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
-        #endregion
+        #endregion 
 
-        private DataGridView dataGridPokedex;
         private Label labelNom;
-        private TextBox NomTextBox;
         private Label labelTipo;
-        private TextBox TipoTextBox;
-        private FontAwesome.Sharp.IconButton buttonSalir;
         private Label labelGen;
-        private TextBox textBoxGen;
         private Label labelEvo;
+        private FontAwesome.Sharp.IconButton btnSalir;
+        private DataGridView GridPokedex;
+        private TextBox textBoxNom;
+        private TextBox textBoxTipo;
+        private TextBox textBoxGen;
         private TextBox textBoxEvo;
-        private EventHandler labelEvo_Click;
-        public DataGridViewCellEventHandler dataGridView1_CellContentClick { get; private set; }
     }
 }
