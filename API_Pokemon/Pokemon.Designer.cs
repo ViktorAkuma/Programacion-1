@@ -54,7 +54,6 @@ namespace API_Pokemon
             dataGridPokedex.RowHeadersWidth = 51;
             dataGridPokedex.Size = new Size(418, 426);
             dataGridPokedex.TabIndex = 0;
-            dataGridPokedex.CellContentClick += this.dataGridView1_CellContentClick;
             // 
             // labelNom
             // 
@@ -124,7 +123,6 @@ namespace API_Pokemon
             labelEvo.Size = new Size(73, 20);
             labelEvo.TabIndex = 8;
             labelEvo.Text = "Evolución";
-            labelEvo.Click += this.labelEvo_Click;
             // 
             // EvoTextBox
             // 
@@ -169,7 +167,6 @@ namespace API_Pokemon
         private Label labelEvo;
         private TextBox textBoxEvo;
         private EventHandler labelEvo_Click;
-
         public DataGridViewCellEventHandler dataGridView1_CellContentClick { get; private set; }
     }
 }
