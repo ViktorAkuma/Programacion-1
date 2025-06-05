@@ -1,5 +1,7 @@
-namespace API_Pokemon
-{
+using API_Pokemon.Views;
+
+namespace API_Pokemon;
+
     internal static class Program
     {
         /// <summary>
@@ -14,4 +16,3 @@ namespace API_Pokemon
             Application.Run(new Pokemon());
         }
     }
-}

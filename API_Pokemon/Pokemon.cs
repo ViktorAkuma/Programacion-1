@@ -20,7 +20,6 @@ namespace API_Pokemon
                     response.Con
             }
         }
-
         private void GridPokedex_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (GridPokedex.RowCount > 0 && GridPokedex.SelectedRows.Count > 0)
