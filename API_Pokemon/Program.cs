@@ -1,7 +1,7 @@
 using API_Pokemon.Views;
 
-namespace API_Pokemon;
-
+namespace API_Pokemon
+{
     internal static class Program
     {
         /// <summary>
@@ -13,6 +13,7 @@ namespace API_Pokemon;
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new Pokemon());
+            Application.Run(new PokemonView());
         }
     }
+}

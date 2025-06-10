@@ -1,6 +1,6 @@
 ﻿namespace WindowsForms.Views
 {
-    partial class PeliculasView
+    public partial class PeliculasView
     {
         /// <summary>
         /// Required designer variable.
@@ -34,63 +34,99 @@
             btnSalir = new FontAwesome.Sharp.IconButton();
             GridPeliculas = new DataGridView();
             FilmPicture = new PictureBox();
+            TabPagesLista = new TabControl();
+            tabPage1 = new TabPage();
+            btnBuscar = new FontAwesome.Sharp.IconButton();
+            textBox1 = new TextBox();
+            label2 = new Label();
+            tabPage2 = new TabPage();
+            NumericCalificacion = new NumericUpDown();
+            NumericDuracion = new NumericUpDown();
+            textBox4 = new TextBox();
+            label = new Label();
+            labelDuracion = new Label();
+            labelPortada = new Label();
+            textBox2 = new TextBox();
+            labelTitulo = new Label();
+            BtnCancelar = new FontAwesome.Sharp.IconButton();
+            BtnGuardar = new FontAwesome.Sharp.IconButton();
+            panel1 = new Panel();
+            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)GridPeliculas).BeginInit();
             ((System.ComponentModel.ISupportInitialize)FilmPicture).BeginInit();
+            TabPagesLista.SuspendLayout();
+            tabPage1.SuspendLayout();
+            tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)NumericCalificacion).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)NumericDuracion).BeginInit();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // btnAgregar
             // 
             btnAgregar.Anchor = AnchorStyles.Bottom;
-            btnAgregar.IconChar = FontAwesome.Sharp.IconChar.None;
+            btnAgregar.BackColor = Color.White;
+            btnAgregar.IconChar = FontAwesome.Sharp.IconChar.FileCirclePlus;
             btnAgregar.IconColor = Color.Black;
             btnAgregar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnAgregar.Location = new Point(295, 519);
+            btnAgregar.ImageAlign = ContentAlignment.MiddleLeft;
+            btnAgregar.Location = new Point(889, 147);
             btnAgregar.Name = "btnAgregar";
-            btnAgregar.Size = new Size(94, 29);
+            btnAgregar.Size = new Size(137, 49);
             btnAgregar.TabIndex = 1;
             btnAgregar.Text = "&Agregar";
-            btnAgregar.UseVisualStyleBackColor = true;
+            btnAgregar.TextAlign = ContentAlignment.MiddleRight;
+            btnAgregar.UseVisualStyleBackColor = false;
             btnAgregar.Click += btnAgregar_Click;
             // 
             // btnModificar
             // 
             btnModificar.Anchor = AnchorStyles.Bottom;
-            btnModificar.IconChar = FontAwesome.Sharp.IconChar.None;
+            btnModificar.BackColor = Color.White;
+            btnModificar.IconChar = FontAwesome.Sharp.IconChar.Pencil;
             btnModificar.IconColor = Color.Black;
             btnModificar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnModificar.Location = new Point(470, 519);
+            btnModificar.ImageAlign = ContentAlignment.MiddleLeft;
+            btnModificar.Location = new Point(889, 213);
             btnModificar.Name = "btnModificar";
-            btnModificar.Size = new Size(94, 29);
+            btnModificar.Size = new Size(137, 51);
             btnModificar.TabIndex = 2;
             btnModificar.Text = "&Modificar";
-            btnModificar.UseVisualStyleBackColor = true;
+            btnModificar.TextAlign = ContentAlignment.MiddleRight;
+            btnModificar.UseVisualStyleBackColor = false;
             // 
             // btnEliminar
             // 
             btnEliminar.Anchor = AnchorStyles.Bottom;
-            btnEliminar.IconChar = FontAwesome.Sharp.IconChar.None;
+            btnEliminar.BackColor = Color.White;
+            btnEliminar.IconChar = FontAwesome.Sharp.IconChar.Display;
             btnEliminar.IconColor = Color.Black;
             btnEliminar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnEliminar.Location = new Point(625, 519);
+            btnEliminar.ImageAlign = ContentAlignment.MiddleLeft;
+            btnEliminar.Location = new Point(889, 282);
             btnEliminar.Name = "btnEliminar";
-            btnEliminar.Size = new Size(94, 29);
+            btnEliminar.Size = new Size(137, 52);
             btnEliminar.TabIndex = 3;
             btnEliminar.Text = "&Eliminar";
-            btnEliminar.UseVisualStyleBackColor = true;
+            btnEliminar.TextAlign = ContentAlignment.MiddleRight;
+            btnEliminar.UseVisualStyleBackColor = false;
             btnEliminar.Click += btnEliminar_Click_1;
             // 
             // btnSalir
             // 
             btnSalir.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btnSalir.IconChar = FontAwesome.Sharp.IconChar.None;
+            btnSalir.BackColor = Color.White;
+            btnSalir.IconChar = FontAwesome.Sharp.IconChar.DoorOpen;
             btnSalir.IconColor = Color.Black;
             btnSalir.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnSalir.Location = new Point(948, 533);
+            btnSalir.ImageAlign = ContentAlignment.MiddleLeft;
+            btnSalir.Location = new Point(889, 398);
             btnSalir.Name = "btnSalir";
-            btnSalir.Size = new Size(94, 29);
+            btnSalir.Size = new Size(137, 52);
             btnSalir.TabIndex = 4;
             btnSalir.Text = "&Salir";
-            btnSalir.UseVisualStyleBackColor = true;
+            btnSalir.TextAlign = ContentAlignment.MiddleRight;
+            btnSalir.UseVisualStyleBackColor = false;
             btnSalir.Click += btnSalir_Click_1;
             // 
             // GridPeliculas
@@ -99,40 +135,251 @@
             GridPeliculas.AllowUserToDeleteRows = false;
             GridPeliculas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             GridPeliculas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            GridPeliculas.Location = new Point(26, 21);
+            GridPeliculas.Location = new Point(6, 92);
             GridPeliculas.Name = "GridPeliculas";
             GridPeliculas.ReadOnly = true;
             GridPeliculas.RowHeadersWidth = 51;
             GridPeliculas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            GridPeliculas.Size = new Size(693, 464);
+            GridPeliculas.Size = new Size(667, 429);
             GridPeliculas.TabIndex = 5;
             GridPeliculas.SelectionChanged += GridPeliculas_SelectionChanged;
             // 
             // FilmPicture
             // 
-            FilmPicture.Location = new Point(753, 21);
+            FilmPicture.Location = new Point(679, 92);
             FilmPicture.Name = "FilmPicture";
-            FilmPicture.Size = new Size(289, 464);
+            FilmPicture.Size = new Size(204, 429);
             FilmPicture.SizeMode = PictureBoxSizeMode.Zoom;
             FilmPicture.TabIndex = 6;
             FilmPicture.TabStop = false;
+            // 
+            // TabPagesLista
+            // 
+            TabPagesLista.Controls.Add(tabPage1);
+            TabPagesLista.Controls.Add(tabPage2);
+            TabPagesLista.Location = new Point(12, 83);
+            TabPagesLista.Name = "TabPagesLista";
+            TabPagesLista.SelectedIndex = 0;
+            TabPagesLista.Size = new Size(1040, 489);
+            TabPagesLista.TabIndex = 7;
+            // 
+            // tabPage1
+            // 
+            tabPage1.Controls.Add(btnBuscar);
+            tabPage1.Controls.Add(textBox1);
+            tabPage1.Controls.Add(label2);
+            tabPage1.Controls.Add(GridPeliculas);
+            tabPage1.Controls.Add(btnSalir);
+            tabPage1.Controls.Add(FilmPicture);
+            tabPage1.Controls.Add(btnEliminar);
+            tabPage1.Controls.Add(btnAgregar);
+            tabPage1.Controls.Add(btnModificar);
+            tabPage1.Location = new Point(4, 29);
+            tabPage1.Name = "tabPage1";
+            tabPage1.Padding = new Padding(3);
+            tabPage1.Size = new Size(1032, 456);
+            tabPage1.TabIndex = 0;
+            tabPage1.Text = "Lista";
+            tabPage1.UseVisualStyleBackColor = true;
+            tabPage1.Click += tabPage1_Click;
+            // 
+            // btnBuscar
+            // 
+            btnBuscar.AllowDrop = true;
+            btnBuscar.Anchor = AnchorStyles.Bottom;
+            btnBuscar.BackColor = Color.White;
+            btnBuscar.IconChar = FontAwesome.Sharp.IconChar.Search;
+            btnBuscar.IconColor = Color.Black;
+            btnBuscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnBuscar.ImageAlign = ContentAlignment.MiddleLeft;
+            btnBuscar.Location = new Point(889, 22);
+            btnBuscar.Name = "btnBuscar";
+            btnBuscar.Size = new Size(137, 49);
+            btnBuscar.TabIndex = 13;
+            btnBuscar.Text = "&Buscar";
+            btnBuscar.TextAlign = ContentAlignment.MiddleRight;
+            btnBuscar.UseVisualStyleBackColor = false;
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(67, 33);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(816, 27);
+            textBox1.TabIndex = 12;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(6, 36);
+            label2.Name = "label2";
+            label2.Size = new Size(55, 20);
+            label2.TabIndex = 11;
+            label2.Text = "Buscar:";
+            label2.Click += label2_Click;
+            // 
+            // tabPage2
+            // 
+            tabPage2.Controls.Add(NumericCalificacion);
+            tabPage2.Controls.Add(NumericDuracion);
+            tabPage2.Controls.Add(textBox4);
+            tabPage2.Controls.Add(label);
+            tabPage2.Controls.Add(labelDuracion);
+            tabPage2.Controls.Add(labelPortada);
+            tabPage2.Controls.Add(textBox2);
+            tabPage2.Controls.Add(labelTitulo);
+            tabPage2.Controls.Add(BtnCancelar);
+            tabPage2.Controls.Add(BtnGuardar);
+            tabPage2.Location = new Point(4, 29);
+            tabPage2.Name = "tabPage2";
+            tabPage2.Padding = new Padding(3);
+            tabPage2.Size = new Size(1032, 456);
+            tabPage2.TabIndex = 1;
+            tabPage2.Text = "Agregar/Editar";
+            tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // NumericCalificacion
+            // 
+            NumericCalificacion.DecimalPlaces = 2;
+            NumericCalificacion.Location = new Point(434, 276);
+            NumericCalificacion.Maximum = new decimal(new int[] { 10, 0, 0, 0 });
+            NumericCalificacion.Name = "NumericCalificacion";
+            NumericCalificacion.Size = new Size(150, 27);
+            NumericCalificacion.TabIndex = 13;
+            // 
+            // NumericDuracion
+            // 
+            NumericDuracion.Location = new Point(434, 198);
+            NumericDuracion.Maximum = new decimal(new int[] { 999, 0, 0, 0 });
+            NumericDuracion.Name = "NumericDuracion";
+            NumericDuracion.Size = new Size(150, 27);
+            NumericDuracion.TabIndex = 12;
+            NumericDuracion.ValueChanged += numericUpDown1_ValueChanged;
+            // 
+            // textBox4
+            // 
+            textBox4.Location = new Point(434, 120);
+            textBox4.Name = "textBox4";
+            textBox4.Size = new Size(352, 27);
+            textBox4.TabIndex = 10;
+            // 
+            // label
+            // 
+            label.AutoSize = true;
+            label.Location = new Point(264, 278);
+            label.Name = "label";
+            label.Size = new Size(89, 20);
+            label.TabIndex = 8;
+            label.Text = "Calificación:";
+            // 
+            // labelDuracion
+            // 
+            labelDuracion.AutoSize = true;
+            labelDuracion.Location = new Point(264, 198);
+            labelDuracion.Name = "labelDuracion";
+            labelDuracion.Size = new Size(149, 20);
+            labelDuracion.TabIndex = 7;
+            labelDuracion.Text = "Duración en Minutos:";
+            // 
+            // labelPortada
+            // 
+            labelPortada.AutoSize = true;
+            labelPortada.Location = new Point(264, 123);
+            labelPortada.Name = "labelPortada";
+            labelPortada.Size = new Size(63, 20);
+            labelPortada.TabIndex = 6;
+            labelPortada.Text = "Portada:";
+            // 
+            // textBox2
+            // 
+            textBox2.Location = new Point(434, 47);
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(352, 27);
+            textBox2.TabIndex = 5;
+            // 
+            // labelTitulo
+            // 
+            labelTitulo.AutoSize = true;
+            labelTitulo.Location = new Point(264, 50);
+            labelTitulo.Name = "labelTitulo";
+            labelTitulo.Size = new Size(50, 20);
+            labelTitulo.TabIndex = 4;
+            labelTitulo.Text = "Titulo:";
+            // 
+            // BtnCancelar
+            // 
+            BtnCancelar.Anchor = AnchorStyles.Bottom;
+            BtnCancelar.BackColor = Color.White;
+            BtnCancelar.IconChar = FontAwesome.Sharp.IconChar.Cancel;
+            BtnCancelar.IconColor = Color.Black;
+            BtnCancelar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            BtnCancelar.ImageAlign = ContentAlignment.MiddleLeft;
+            BtnCancelar.Location = new Point(535, 385);
+            BtnCancelar.Name = "BtnCancelar";
+            BtnCancelar.Size = new Size(137, 49);
+            BtnCancelar.TabIndex = 3;
+            BtnCancelar.Text = "&Cancelar";
+            BtnCancelar.TextAlign = ContentAlignment.MiddleRight;
+            BtnCancelar.UseVisualStyleBackColor = false;
+            BtnCancelar.Click += BtnCancelar_Click;
+            // 
+            // BtnGuardar
+            // 
+            BtnGuardar.Anchor = AnchorStyles.Bottom;
+            BtnGuardar.BackColor = Color.White;
+            BtnGuardar.IconChar = FontAwesome.Sharp.IconChar.Save;
+            BtnGuardar.IconColor = Color.Black;
+            BtnGuardar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            BtnGuardar.ImageAlign = ContentAlignment.MiddleLeft;
+            BtnGuardar.Location = new Point(264, 385);
+            BtnGuardar.Name = "BtnGuardar";
+            BtnGuardar.Size = new Size(137, 49);
+            BtnGuardar.TabIndex = 2;
+            BtnGuardar.Text = "&Guardar";
+            BtnGuardar.TextAlign = ContentAlignment.MiddleRight;
+            BtnGuardar.UseVisualStyleBackColor = false;
+            BtnGuardar.Click += BtnGuardar_Click;
+            // 
+            // panel1
+            // 
+            panel1.Anchor = AnchorStyles.None;
+            panel1.BackColor = SystemColors.GradientActiveCaption;
+            panel1.Controls.Add(label1);
+            panel1.Location = new Point(12, 12);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(1040, 65);
+            panel1.TabIndex = 8;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Noto Serif Lao", 18F);
+            label1.Location = new Point(3, 9);
+            label1.Name = "label1";
+            label1.Size = new Size(172, 49);
+            label1.TabIndex = 0;
+            label1.Text = "Películas";
             // 
             // PeliculasView
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.GradientInactiveCaption;
             ClientSize = new Size(1064, 584);
-            Controls.Add(FilmPicture);
-            Controls.Add(GridPeliculas);
-            Controls.Add(btnSalir);
-            Controls.Add(btnEliminar);
-            Controls.Add(btnModificar);
-            Controls.Add(btnAgregar);
+            Controls.Add(panel1);
+            Controls.Add(TabPagesLista);
             Name = "PeliculasView";
-            Text = "PeliculasView";
             Load += PeliculasView_Load;
             ((System.ComponentModel.ISupportInitialize)GridPeliculas).EndInit();
             ((System.ComponentModel.ISupportInitialize)FilmPicture).EndInit();
+            TabPagesLista.ResumeLayout(false);
+            tabPage1.ResumeLayout(false);
+            tabPage1.PerformLayout();
+            tabPage2.ResumeLayout(false);
+            tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)NumericCalificacion).EndInit();
+            ((System.ComponentModel.ISupportInitialize)NumericDuracion).EndInit();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -143,5 +390,23 @@
         private FontAwesome.Sharp.IconButton btnSalir;
         private DataGridView GridPeliculas;
         private PictureBox FilmPicture;
+        private TabControl TabPagesLista;
+        private TabPage tabPage1;
+        private TabPage tabPage2;
+        private Panel panel1;
+        private Label label1;
+        private TextBox textBox1;
+        private Label label2;
+        private FontAwesome.Sharp.IconButton btnBuscar;
+        private FontAwesome.Sharp.IconButton BtnCancelar;
+        private FontAwesome.Sharp.IconButton BtnGuardar;
+        private TextBox textBox4;
+        private Label label;
+        private Label labelDuracion;
+        private Label labelPortada;
+        private TextBox textBox2;
+        private Label labelTitulo;
+        private NumericUpDown NumericDuracion;
+        private NumericUpDown NumericCalificacion;
     }
 }

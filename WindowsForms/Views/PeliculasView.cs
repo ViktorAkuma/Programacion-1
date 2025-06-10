@@ -29,7 +29,7 @@ namespace WindowsForms.Views
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-
+            TabPagesLista.SelectTab("TabPageAgregar");
         }
         private void btnModificar_Click(object sender, EventArgs e)
         {
@@ -68,7 +68,6 @@ namespace WindowsForms.Views
             else
             {
                 MessageBox.Show("Debe seleccionar una película para eliminar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
             }
         }
 
@@ -83,13 +82,55 @@ namespace WindowsForms.Views
         }
 
         private void GridPeliculas_SelectionChanged(object sender, EventArgs e)
-        { 
+        {
             if (GridPeliculas.RowCount > 0 && GridPeliculas.SelectedRows.Count > 0)
             {
                 Peliculas peliSeleccionada = (Peliculas)GridPeliculas.SelectedRows[0].DataBoundItem;
                 FilmPicture.ImageLocation = peliSeleccionada.portada;
             }
-           
+
+        }
+
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnCancelar_Click(object sender, EventArgs e)
+        {
+            TabPagesLista.SelectTab("TabPageLista");
+        }
+
+        private async void BtnGuardar_Click(object sender, EventArgs e)
+        {
+            Peliculas nuevaPelicula = new Peliculas
+            {
+                titulo = labelTitulo.Text,
+                duracion = (int)NumericDuracion.Value,
+                portada = labelPortada.Text,
+                calificacion = (double)NumericCalificacion.Value
+            };
+            var response = await clientHttp.PostAsJsonAsync(url, nuevaPelicula);
+            if (response.IsSuccessStatusCode)
+            {
+                MessageBox.Show("Pelicula agregada correctamente", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                ObtenemosPeliculas();
+                TabPagesLista.SelectTab("TabPageLista");
+            }
+            else
+            {
+                MessageBox.Show("Error al agregar la película", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
