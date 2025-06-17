@@ -8,7 +8,7 @@ namespace WindowsForms.Models
 {
     public class Peliculas
     {
-        public string _id { get; set; }
+        public string? _id { get; set; }
         public string titulo { get; set; }
         public int duracion { get; set; }
         public string portada { get; set; }

@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Forms;
 using WindowsForms.Models;
+using WindowsForms.Services;
 using MessageBox = System.Windows.Forms.MessageBox;
 
 namespace WindowsForms.Views
@@ -18,7 +19,9 @@ namespace WindowsForms.Views
     {
         HttpClient clientHttp = new HttpClient();
         string url = "https://cinesoftware-2930.restdb.io/rest/peliculas?apikey=7aee3ab585afc8cd5fe64627767c0998584b4";
-        Peliculas peliSeleccionada = new Peliculas();
+        PeliculaService peliculaService = new PeliculaService();
+        Peliculas peliculaModificada;
+        List<Peliculas> peliculas;
 
         public PeliculasView()
         {
@@ -37,13 +40,7 @@ namespace WindowsForms.Views
         }
         private async void ObtenemosPeliculas()
         {
-
-            var response = await clientHttp.GetAsync(url);
-            if (response != null)
-            {
-                List<Peliculas> peliculas = await response.Content.ReadFromJsonAsync<List<Peliculas>>();
-                GridPeliculas.DataSource = peliculas;
-            }
+            GridPeliculas.DataSource = await peliculaService.GetAllAsync();
         }
 
         private async void btnEliminar_Click_1(object sender, EventArgs e)
@@ -51,16 +48,15 @@ namespace WindowsForms.Views
             //Chequeamos que haya peliculas en la grilla
             if (GridPeliculas.RowCount > 0 && GridPeliculas.SelectedRows.Count > 0)
             {
-                Peliculas peliculasSeleccionada = (Peliculas)GridPeliculas.SelectedRows[0].DataBoundItem;
-                var respuesta = MessageBox.Show($"¿Está seguro que desea eliminar la película seleccionada {peliSeleccionada._id}?", "Confirmar Eliminacion", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
+                Peliculas peliSeleccionada = (Peliculas)GridPeliculas.SelectedRows[0].DataBoundItem;
+                var respuesta = MessageBox.Show($"¿Está seguro que desea eliminar la película seleccionada {peliSeleccionada.titulo}?", "Confirmar Eliminacion", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (respuesta == DialogResult.Yes)
                 {
-                    string url = $"https://cinesoftware-2930.restdb.io/rest/peliculas/{peliculasSeleccionada}?apikey=7aee3ab585afc8cd5fe64627767c0998584b4";
-                    var response = await clientHttp.DeleteAsync(url);
-                    if (response.IsSuccessStatusCode)
+
+                    if (await peliculaService.DeleteAsync(peliSeleccionada._id))
                     {
-                        MessageBox.Show("Película eliminada correctamente", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        LabelStatusMessage.Text = $"Película {peliSeleccionada.titulo} eliminada correctamente";
+                        TimerStatusBar.Start(); // Iniciar el temporizador para borrar el mensaje después de 5 segundos
                         ObtenemosPeliculas();
                     }
                 }
@@ -108,27 +104,63 @@ namespace WindowsForms.Views
 
         private async void BtnGuardar_Click(object sender, EventArgs e)
         {
-            Peliculas nuevaPelicula = new Peliculas
+            Peliculas PeliculaAGuardar = new Peliculas
             {
+                _id = peliculaModificada?._id??null, // Si es una modificación, usamos el ID existente
                 titulo = labelTitulo.Text,
                 duracion = (int)NumericDuracion.Value,
                 portada = labelPortada.Text,
                 calificacion = (double)NumericCalificacion.Value
             };
-            var response = await clientHttp.PostAsJsonAsync(url, nuevaPelicula);
-            if (response.IsSuccessStatusCode)
+
+            bool response;
+            if (peliculaModificada != null)
             {
-                MessageBox.Show("Pelicula agregada correctamente", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                ObtenemosPeliculas();
-                TabPagesLista.SelectTab("TabPageLista");
+                response = await peliculaService.UpdateAsync(PeliculaAGuardar);
             }
             else
             {
-                MessageBox.Show("Error al agregar la película", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                response = await peliculaService.AddAsync(PeliculaAGuardar);
+            }
+            if (response)
+            {
+                peliculaModificada = null; // Limpiamos la variable para que no se use en futuras modificaciones
+                LabelStatusMessage.Text = "Película guardada correctamente";
+                TimerStatusBar.Start(); // Iniciar el temporizador para borrar el mensaje después de 5 segundos
+                ObtenemosPeliculas();
+                TabAgregarEditar
             }
         }
-
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+        private void statusStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+        private void toolStripStatusLabel5_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void TimerStatusBar_Tick(object sender, EventArgs e)
+        {
+            LabelStatusMessage.Text = string.Empty;
+            TimerStatusBar.Stop(); // Detenemos el temporizador para que el mensaje no se borre inmediatamente
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(textBox1_TextChanged))
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TabAgregarEditar_Click(object sender, EventArgs e)
         {
 
         }

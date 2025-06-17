@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             btnAgregar = new FontAwesome.Sharp.IconButton();
             btnModificar = new FontAwesome.Sharp.IconButton();
             btnEliminar = new FontAwesome.Sharp.IconButton();
@@ -35,11 +36,18 @@
             GridPeliculas = new DataGridView();
             FilmPicture = new PictureBox();
             TabPagesLista = new TabControl();
-            tabPage1 = new TabPage();
+            TabLista = new TabPage();
+            statusStrip1 = new StatusStrip();
+            LabelStatusMessage = new ToolStripStatusLabel();
+            toolStripStatusLabel1 = new ToolStripStatusLabel();
+            toolStripStatusLabel3 = new ToolStripStatusLabel();
+            toolStripStatusLabel2 = new ToolStripStatusLabel();
+            toolStripStatusLabel4 = new ToolStripStatusLabel();
+            toolStripStatusLabel5 = new ToolStripStatusLabel();
             btnBuscar = new FontAwesome.Sharp.IconButton();
             textBox1 = new TextBox();
             label2 = new Label();
-            tabPage2 = new TabPage();
+            TabAgregarEditar = new TabPage();
             NumericCalificacion = new NumericUpDown();
             NumericDuracion = new NumericUpDown();
             textBox4 = new TextBox();
@@ -52,11 +60,13 @@
             BtnGuardar = new FontAwesome.Sharp.IconButton();
             panel1 = new Panel();
             label1 = new Label();
+            TimerStatusBar = new System.Windows.Forms.Timer(components);
             ((System.ComponentModel.ISupportInitialize)GridPeliculas).BeginInit();
             ((System.ComponentModel.ISupportInitialize)FilmPicture).BeginInit();
             TabPagesLista.SuspendLayout();
-            tabPage1.SuspendLayout();
-            tabPage2.SuspendLayout();
+            TabLista.SuspendLayout();
+            statusStrip1.SuspendLayout();
+            TabAgregarEditar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)NumericCalificacion).BeginInit();
             ((System.ComponentModel.ISupportInitialize)NumericDuracion).BeginInit();
             panel1.SuspendLayout();
@@ -140,7 +150,7 @@
             GridPeliculas.ReadOnly = true;
             GridPeliculas.RowHeadersWidth = 51;
             GridPeliculas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            GridPeliculas.Size = new Size(667, 429);
+            GridPeliculas.Size = new Size(667, 358);
             GridPeliculas.TabIndex = 5;
             GridPeliculas.SelectionChanged += GridPeliculas_SelectionChanged;
             // 
@@ -148,40 +158,84 @@
             // 
             FilmPicture.Location = new Point(679, 92);
             FilmPicture.Name = "FilmPicture";
-            FilmPicture.Size = new Size(204, 429);
+            FilmPicture.Size = new Size(204, 358);
             FilmPicture.SizeMode = PictureBoxSizeMode.Zoom;
             FilmPicture.TabIndex = 6;
             FilmPicture.TabStop = false;
             // 
             // TabPagesLista
             // 
-            TabPagesLista.Controls.Add(tabPage1);
-            TabPagesLista.Controls.Add(tabPage2);
+            TabPagesLista.Controls.Add(TabLista);
+            TabPagesLista.Controls.Add(TabAgregarEditar);
             TabPagesLista.Location = new Point(12, 83);
             TabPagesLista.Name = "TabPagesLista";
             TabPagesLista.SelectedIndex = 0;
-            TabPagesLista.Size = new Size(1040, 489);
+            TabPagesLista.Size = new Size(1040, 533);
             TabPagesLista.TabIndex = 7;
             // 
-            // tabPage1
+            // TabLista
             // 
-            tabPage1.Controls.Add(btnBuscar);
-            tabPage1.Controls.Add(textBox1);
-            tabPage1.Controls.Add(label2);
-            tabPage1.Controls.Add(GridPeliculas);
-            tabPage1.Controls.Add(btnSalir);
-            tabPage1.Controls.Add(FilmPicture);
-            tabPage1.Controls.Add(btnEliminar);
-            tabPage1.Controls.Add(btnAgregar);
-            tabPage1.Controls.Add(btnModificar);
-            tabPage1.Location = new Point(4, 29);
-            tabPage1.Name = "tabPage1";
-            tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(1032, 456);
-            tabPage1.TabIndex = 0;
-            tabPage1.Text = "Lista";
-            tabPage1.UseVisualStyleBackColor = true;
-            tabPage1.Click += tabPage1_Click;
+            TabLista.Controls.Add(statusStrip1);
+            TabLista.Controls.Add(btnBuscar);
+            TabLista.Controls.Add(textBox1);
+            TabLista.Controls.Add(label2);
+            TabLista.Controls.Add(GridPeliculas);
+            TabLista.Controls.Add(btnSalir);
+            TabLista.Controls.Add(FilmPicture);
+            TabLista.Controls.Add(btnEliminar);
+            TabLista.Controls.Add(btnAgregar);
+            TabLista.Controls.Add(btnModificar);
+            TabLista.Location = new Point(4, 29);
+            TabLista.Name = "TabLista";
+            TabLista.Padding = new Padding(3);
+            TabLista.Size = new Size(1032, 500);
+            TabLista.TabIndex = 0;
+            TabLista.Text = "Lista";
+            TabLista.UseVisualStyleBackColor = true;
+            TabLista.Click += tabPage1_Click;
+            // 
+            // statusStrip1
+            // 
+            statusStrip1.ImageScalingSize = new Size(20, 20);
+            statusStrip1.Items.AddRange(new ToolStripItem[] { LabelStatusMessage, toolStripStatusLabel1, toolStripStatusLabel3, toolStripStatusLabel2, toolStripStatusLabel4, toolStripStatusLabel5 });
+            statusStrip1.Location = new Point(3, 471);
+            statusStrip1.Name = "statusStrip1";
+            statusStrip1.Size = new Size(1026, 26);
+            statusStrip1.TabIndex = 14;
+            statusStrip1.Text = "statusStrip1";
+            statusStrip1.ItemClicked += statusStrip1_ItemClicked;
+            // 
+            // LabelStatusMessage
+            // 
+            LabelStatusMessage.Name = "LabelStatusMessage";
+            LabelStatusMessage.Size = new Size(0, 20);
+            // 
+            // toolStripStatusLabel1
+            // 
+            toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            toolStripStatusLabel1.Size = new Size(0, 20);
+            // 
+            // toolStripStatusLabel3
+            // 
+            toolStripStatusLabel3.Name = "toolStripStatusLabel3";
+            toolStripStatusLabel3.Size = new Size(0, 20);
+            // 
+            // toolStripStatusLabel2
+            // 
+            toolStripStatusLabel2.Name = "toolStripStatusLabel2";
+            toolStripStatusLabel2.Size = new Size(0, 20);
+            // 
+            // toolStripStatusLabel4
+            // 
+            toolStripStatusLabel4.Name = "toolStripStatusLabel4";
+            toolStripStatusLabel4.Size = new Size(0, 20);
+            // 
+            // toolStripStatusLabel5
+            // 
+            toolStripStatusLabel5.Name = "toolStripStatusLabel5";
+            toolStripStatusLabel5.Size = new Size(151, 20);
+            toolStripStatusLabel5.Text = "toolStripStatusLabel5";
+            toolStripStatusLabel5.Click += toolStripStatusLabel5_Click;
             // 
             // btnBuscar
             // 
@@ -192,13 +246,14 @@
             btnBuscar.IconColor = Color.Black;
             btnBuscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnBuscar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnBuscar.Location = new Point(889, 22);
+            btnBuscar.Location = new Point(889, 33);
             btnBuscar.Name = "btnBuscar";
             btnBuscar.Size = new Size(137, 49);
             btnBuscar.TabIndex = 13;
             btnBuscar.Text = "&Buscar";
             btnBuscar.TextAlign = ContentAlignment.MiddleRight;
             btnBuscar.UseVisualStyleBackColor = false;
+            btnBuscar.Click += btnBuscar_Click;
             // 
             // textBox1
             // 
@@ -206,6 +261,7 @@
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(816, 27);
             textBox1.TabIndex = 12;
+            textBox1.TextChanged += textBox1_TextChanged;
             // 
             // label2
             // 
@@ -217,25 +273,26 @@
             label2.Text = "Buscar:";
             label2.Click += label2_Click;
             // 
-            // tabPage2
+            // TabAgregarEditar
             // 
-            tabPage2.Controls.Add(NumericCalificacion);
-            tabPage2.Controls.Add(NumericDuracion);
-            tabPage2.Controls.Add(textBox4);
-            tabPage2.Controls.Add(label);
-            tabPage2.Controls.Add(labelDuracion);
-            tabPage2.Controls.Add(labelPortada);
-            tabPage2.Controls.Add(textBox2);
-            tabPage2.Controls.Add(labelTitulo);
-            tabPage2.Controls.Add(BtnCancelar);
-            tabPage2.Controls.Add(BtnGuardar);
-            tabPage2.Location = new Point(4, 29);
-            tabPage2.Name = "tabPage2";
-            tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(1032, 456);
-            tabPage2.TabIndex = 1;
-            tabPage2.Text = "Agregar/Editar";
-            tabPage2.UseVisualStyleBackColor = true;
+            TabAgregarEditar.Controls.Add(NumericCalificacion);
+            TabAgregarEditar.Controls.Add(NumericDuracion);
+            TabAgregarEditar.Controls.Add(textBox4);
+            TabAgregarEditar.Controls.Add(label);
+            TabAgregarEditar.Controls.Add(labelDuracion);
+            TabAgregarEditar.Controls.Add(labelPortada);
+            TabAgregarEditar.Controls.Add(textBox2);
+            TabAgregarEditar.Controls.Add(labelTitulo);
+            TabAgregarEditar.Controls.Add(BtnCancelar);
+            TabAgregarEditar.Controls.Add(BtnGuardar);
+            TabAgregarEditar.Location = new Point(4, 29);
+            TabAgregarEditar.Name = "TabAgregarEditar";
+            TabAgregarEditar.Padding = new Padding(3);
+            TabAgregarEditar.Size = new Size(1032, 500);
+            TabAgregarEditar.TabIndex = 1;
+            TabAgregarEditar.Text = "Agregar/Editar";
+            TabAgregarEditar.UseVisualStyleBackColor = true;
+            TabAgregarEditar.Click += TabAgregarEditar_Click;
             // 
             // NumericCalificacion
             // 
@@ -359,12 +416,18 @@
             label1.TabIndex = 0;
             label1.Text = "Películas";
             // 
+            // TimerStatusBar
+            // 
+            TimerStatusBar.Interval = 5000;
+            TimerStatusBar.Tick += TimerStatusBar_Tick;
+            // 
             // PeliculasView
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            AutoSize = true;
             BackColor = SystemColors.GradientInactiveCaption;
-            ClientSize = new Size(1064, 584);
+            ClientSize = new Size(1064, 648);
             Controls.Add(panel1);
             Controls.Add(TabPagesLista);
             Name = "PeliculasView";
@@ -372,10 +435,12 @@
             ((System.ComponentModel.ISupportInitialize)GridPeliculas).EndInit();
             ((System.ComponentModel.ISupportInitialize)FilmPicture).EndInit();
             TabPagesLista.ResumeLayout(false);
-            tabPage1.ResumeLayout(false);
-            tabPage1.PerformLayout();
-            tabPage2.ResumeLayout(false);
-            tabPage2.PerformLayout();
+            TabLista.ResumeLayout(false);
+            TabLista.PerformLayout();
+            statusStrip1.ResumeLayout(false);
+            statusStrip1.PerformLayout();
+            TabAgregarEditar.ResumeLayout(false);
+            TabAgregarEditar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)NumericCalificacion).EndInit();
             ((System.ComponentModel.ISupportInitialize)NumericDuracion).EndInit();
             panel1.ResumeLayout(false);
@@ -408,5 +473,15 @@
         private Label labelTitulo;
         private NumericUpDown NumericDuracion;
         private NumericUpDown NumericCalificacion;
+        private TabPage TabLista;
+        private TabPage TabAgregarEditar;
+        private StatusStrip statusStrip1;
+        private ToolStripStatusLabel LabelStatusMessage;
+        private ToolStripStatusLabel toolStripStatusLabel1;
+        private ToolStripStatusLabel toolStripStatusLabel3;
+        private ToolStripStatusLabel toolStripStatusLabel2;
+        private ToolStripStatusLabel toolStripStatusLabel4;
+        private ToolStripStatusLabel toolStripStatusLabel5;
+        private System.Windows.Forms.Timer TimerStatusBar;
     }
 }
