@@ -128,7 +128,8 @@ namespace WindowsForms.Views
                 LabelStatusMessage.Text = "Película guardada correctamente";
                 TimerStatusBar.Start(); // Iniciar el temporizador para borrar el mensaje después de 5 segundos
                 ObtenemosPeliculas();
-                TabAgregarEditar
+                TabAgregarEditar();
+                TabControl.SelectTab("TabPageLista");
             }
         }
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
